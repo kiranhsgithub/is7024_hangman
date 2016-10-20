@@ -10,11 +10,18 @@ namespace Hangman.Models
 
         public int Id { get; set; }
 
-        public string Level { get; set; }
+        public string Name { get; set; }
 
-        public List<String> Words { get; set; }
+        public List<Word> Words { get; set; }
 
-        public string SelectedRandomWord { get; set; }
+        public virtual string SelectedRandomWord { get; set; }
+
+        public Category()
+        {
+            Words = new List<Word>();
+        }
+
+
 
     }
 }

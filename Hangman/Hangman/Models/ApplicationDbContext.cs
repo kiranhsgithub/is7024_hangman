@@ -17,5 +17,11 @@ namespace Hangman.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Hangman.Models.Category> Categories { get; set; }
+
+        public System.Data.Entity.DbSet<Hangman.Models.Level> Levels { get; set; }
+
+        public System.Data.Entity.DbSet<Hangman.Models.Word> Words { get; set; }
     }
 }
