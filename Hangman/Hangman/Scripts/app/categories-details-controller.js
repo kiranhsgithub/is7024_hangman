@@ -1,4 +1,4 @@
-﻿var app = angular.module('HangmanApp', []);
+﻿app = angular.module('HangmanApp');
 app.controller('CategoriesDetailsController', function ($scope) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
