@@ -25,7 +25,8 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <ApplicationInsightsResourceId>/subscriptions/96bcc781-72ce-4658-b872-96e9149a0120/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/Hangman</ApplicationInsightsResourceId>
+    <ApplicationInsightsResourceId>
+    </ApplicationInsightsResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -231,8 +232,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animals.jpg" />
+    <Content Include="Content\astronomy.gif" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fruits.png" />
+    <Content Include="Content\random.jpg" />
     <Content Include="Content\sports.png" />
     <Content Include="Content\states.jpg" />
     <Content Include="favicon.ico" />
