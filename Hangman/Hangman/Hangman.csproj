@@ -248,6 +248,7 @@
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\app\app-module.js" />
     <Content Include="Scripts\app\categories-details-controller.js" />
+    <Content Include="Scripts\app\home-controller.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

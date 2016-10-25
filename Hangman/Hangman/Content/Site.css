@@ -22,3 +22,74 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.hang {
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    border: 1px solid #937e62;
+    border-radius: 10%;
+    background-color: white;
+    margin: 5px;
+    color: white;
+}
+.r {
+    background-color: #d9534f;
+    border-color: #c9302c;
+}
+.g {
+    background-color: #5cb85c;
+    border-color: #449d44;
+}
+.y {
+    background-color: #fef049;
+    border-color: #ffd663;
+}
+
+.jumbotron2 {
+  padding: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #d8c175;
+}
+
+.jumbotron2 h1 {
+  line-height: 1;
+  color: inherit;
+}
+
+.jumbotron2 p {
+  line-height: 1.4;
+}
+
+.container .jumbotron2 {
+  border-radius: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron2 {
+    padding-top: 48px;
+    padding-bottom: 15px;
+  }
+  .container .jumbotron2 {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .jumbotron2 h1 {
+    font-size: 63px;
+  }
+}
+
+.category-selection-custom
+  {
+      padding-top: 10px;
+  }
+
+.hand{ 
+    cursor: pointer; 
+
+}
+

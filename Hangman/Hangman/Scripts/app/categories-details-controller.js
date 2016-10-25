@@ -6,6 +6,8 @@ app.controller('CategoriesDetailsController', function ($scope) {
     $scope.onImageClick = function (id) {
         if (checkLevelSelected()) {
             //redirect to /Categories/Details/" + id + "level=" + $scope.level;
+            $location.path("~/Categories/Details"+id+"level =" +$scope.level)
+
         }
 
 
@@ -16,7 +18,6 @@ app.controller('CategoriesDetailsController', function ($scope) {
             return true;
         }
         return false;
-
     }
 
     //ngclick="onImageClick(1)"
