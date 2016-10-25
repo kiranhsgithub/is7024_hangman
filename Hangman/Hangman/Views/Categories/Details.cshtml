@@ -8,33 +8,88 @@
 
 
 
-    <h2>Details {{lastName}}, {{firstName}}</h2>
-
-    <div>
-        <h4>Category</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.SelectedRandomWord)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.SelectedRandomWord)
-            </dd>
-
-        </dl>
+    <div class="row">
+        <div class="col-xs-6">
+            <h2>Category {{category}}, Level: {{level}}</h2>
+        </div>
+        <div class="col-xs-2">&nbsp;</div>
+        <div class="col-xs-2">
+            <h2 class="pull-right">
+                <button type="button" class="btn btn-default">@Html.ActionLink("Home", "Index", "Home") </button>
+                <button type="button" data-ng-click="replay()" class="btn btn-primary btn-full-width">
+                    Replay <i class="fa fa-repeat" aria-hidden="true"></i>
+                </button>
+            </h2>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
 
+    <div id="selectedrandomword">
+        @Html.DisplayFor(model => model.SelectedRandomWord)
+    </div>
+    <div class="row h3">
+        <div class="col-xs-1"> Word:</div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="col-xs-1" 
+                     data-ng-class="{' text-success bold ' : game.status == 'won', ' text-danger bold ' : !letter.found && game.status == 'lost', 'underline' : !letter.found}"
+                     data-ng-repeat="letter in randomword" >
+                    {{letter.value}} 
+                </div>
+            </div>
+        </div>        
+    </div>
+    <br />
+    <div class="row h3">
+        <div class="col-xs-6" 
+             data-ng-class="{'text-success' : remainingLives > 7, 'text-warning' : remainingLives > 3 && remainingLives <= 7 ,'text-danger' : remainingLives <= 3}"> 
+            <span>Remaining Lives:</span>
+            <span> {{remainingLives}}</span>
+        </div>
+        <div class="col-xs-6">
+            <span>Letters clicked: </span>
+            <span data-ng-repeat="button in clickedButtons"
+                  data-ng-class="{'text-danger' : !button.found,
+                  'text-success' : button.found}">
+                {{button.value}}
+            </span>
+        </div>
+    </div>        
+    
+    <div class="row">
+        <div class="col-md-offset-4 col-md-8">
+            <div class="h1 text-success" data-ng-if="game.status == 'won'">
+                <br />
+                <div>
+                    {{game.message}} <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="h1 text-danger" data-ng-if="game.status == 'lost'">
+                <br />
+                <div>
+                    {{game.message}} <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--div data-ng-if="game.status == 'won' || game.status == 'lost'">        
+        <button type="button" data-ng-click="replay()" class="btn btn-primary">             
+            <span class="h1">Replay </span><i class="fa fa-repeat" aria-hidden="true"></i> </button>
+    </!--div> -->
+    
+    <br />
+    <div class="row" data-ng-repeat="keyboardrow in keybordrows">
+        <div data-ng-if="$index == 1" style="float: left;width: 52px;">&nbsp;</div>
+        <div data-ng-if="$index == 2" class="col-xs-1">&nbsp;</div>
+        <div class="col-xs-1" data-ng-repeat="alphabet in keyboardrow">
+            <button type="button" data-ng-disabled="clickedButtonsList.indexOf(alphabet) != -1 || disableAllButtons"
+                    class="btn btn-primary" style="width: 120%" 
+                    data-ng-click="recordClick(alphabet)">{{alphabet}} </button>
+        </div>        
+       <br />
+       <br />
+    </div>
+    <canvas id="hangman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+    <br />
 </div>
