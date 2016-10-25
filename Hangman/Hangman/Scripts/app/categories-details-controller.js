@@ -105,6 +105,7 @@ app.controller('CategoriesDetailsController', function ($scope, $interval, $wind
         {
             $scope.complete = true;
         }
+        animate();
         if ($scope.complete)
         {
             $scope.game = {
@@ -118,7 +119,7 @@ app.controller('CategoriesDetailsController', function ($scope, $interval, $wind
         if($scope.remainingLives == 0)
         {
             $scope.game = {
-                message: "You Lose!",
+                message: "You're DEAD!",
                 status: "lost",
                 class: 'text-danger'
             }
@@ -140,8 +141,109 @@ app.controller('CategoriesDetailsController', function ($scope, $interval, $wind
             return true;
         }
         return false;
-
     }
+
+    hangmanElement = document.getElementById("hangman");
+    $scope.context = hangmanElement.getContext('2d');
+
+    var draw = function ($pathFromx, $pathFromy, $pathTox, $pathToy) {
+        $scope.context.moveTo($pathFromx, $pathFromy);
+        $scope.context.lineTo($pathTox, $pathToy);
+        $scope.context.stroke();
+    };
+
+    $scope.draw = draw;
+
+    var frame1 = function () {
+        draw(0, 150, 150, 150);
+    };
+
+    $scope.frame1 = frame1;
+
+    var frame2 = function () {
+        draw(10, 0, 10, 600);
+    };
+
+    $scope.frame2 = frame2;
+
+    var frame3 = function () {
+        draw(0, 5, 70, 5);
+    };
+
+    $scope.frame3 = frame3;
+
+    var frame4 = function () {
+        draw(60, 5, 60, 15);
+    };
+
+    $scope.frame4 = frame4;
+
+    var torso = function () {
+        draw(60, 36, 60, 70);
+    };
+
+    $scope.torso = torso;
+
+    var rightArm = function () {
+        draw(60, 46, 100, 50);
+    };
+
+    $scope.rightArm = rightArm;
+
+    var leftArm = function () {
+        draw(60, 46, 20, 50);
+    };
+
+    $scope.leftArm = leftArm;
+
+    var rightLeg = function () {
+        draw(60, 70, 100, 100);
+    };
+
+    $scope.rightLeg = rightLeg;
+
+    var leftLeg = function () {
+        draw(60, 70, 20, 100);
+    };
+
+    $scope.leftLeg = leftLeg;
+
+    var head = function () {
+        $scope.context.beginPath();
+        $scope.context.arc(60, 25, 10, 0, Math.PI * 2, true);
+        $scope.context.stroke();
+    };
+
+    $scope.head = head;
+
+    var drawArray = [rightLeg, leftLeg, rightArm, leftArm, torso, head, frame4, frame3, frame2, frame1];
+
+    $scope.drawArray = drawArray;
+
+    // Animate man
+    var animate = function () {
+        var drawMe = $scope.remainingLives;
+        drawArray[drawMe]();
+    };
+
+    $scope.animate = animate;
+
+    
+
+    var canvas = function () {
+        //myStickman = document.getElementById("hangman");
+        //$scope.context = myStickman.getContext('2d');
+        $scope.context.beginPath();
+        $scope.context.strokeStyle = "#428bca";
+        $scope.context.lineWidth = 3;
+    };
+    $scope.canvas = canvas;
+
+    
+
+    
+
+    
 
     //ngclick="onImageClick(1)"
     //Checl if level is selected and redirect toURL
