@@ -233,10 +233,12 @@
     <Content Include="Content\astronomy.gif" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Success.mp3" />
     <Content Include="Content\fruits.png" />
     <Content Include="Content\random.jpg" />
     <Content Include="Content\sports.png" />
     <Content Include="Content\states.jpg" />
+    <Content Include="Content\Failure.mp3" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

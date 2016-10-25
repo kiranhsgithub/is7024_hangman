@@ -69,6 +69,8 @@ app.controller('CategoriesDetailsController', function ($scope, $interval, $wind
                 $scope.randomword[i].value = alphabet;
                 $scope.randomword[i].found = true;
                 found = true;
+                var successAudio = new Audio("/Content/Success.mp3");
+                successAudio.play();
             }
             
             /*var clickedButtonsList = _.map($scope.clickedButtons, function (clickedButton) {
@@ -93,6 +95,8 @@ app.controller('CategoriesDetailsController', function ($scope, $interval, $wind
         if (!found)
         {
             $scope.remainingLives--;
+            var failureAudio = new Audio("/Content/Failure.mp3");
+            failureAudio.play();
         }
         $scope.complete = false;
         var matchCount = 0;
