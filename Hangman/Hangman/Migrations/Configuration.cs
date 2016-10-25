@@ -9,11 +9,11 @@ namespace Hangman.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "Hangman.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(Models.ApplicationDbContext context)
+        protected override void Seed(Hangman.Models.ApplicationDbContext context)
         {
             // ADD ROLE NAMES IN THIS SECTION. YOU DO NOT HAVE TO USE THE 3 PROVIDED
             // HERE AND CAN USE ROLE NAMES THAT ARE APPROPRIATE FOR YOUR APPLICATION
